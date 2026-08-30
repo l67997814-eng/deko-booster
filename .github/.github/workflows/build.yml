@@ -6,9 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install Buildozer and tools
@@ -19,13 +19,9 @@ jobs:
         pip install buildozer cython
     - name: Run Buildozer
       run: |
-        buildozer init
-        sed -i 's/#requirements = python3,kivy/requirements = python3/g' buildozer.spec
-        sed -i 's/#title = My Application/title = Deko Booster/g' buildozer.spec
-        sed -i 's/#package.name = myapp/package.name = dekobooster/g' buildozer.spec
         buildozer -v android debug
     - name: Upload APK artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: deko-apk
         path: bin/*.apk
