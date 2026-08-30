@@ -1,27 +1,10 @@
-name: Build Android APK
-
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y git zip unzip openjdk-17-jdk libltdl-dev libffi-dev libssl-dev
-        pip install --upgrade pip
-        pip install buildozer cython
-    - name: Build with Buildozer
-      run: |
-        buildozer -v android debug
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: package
-        path: bin/*.apk
+[app]
+title = Deko Booster
+package.name = dekobooster
+package.domain = org.deko
+source.include_exts = py,png,jpg,kv,atlas
+version = 1.0
+requirements = python3,kivy
+orientation = portrait
+fullscreen = 0
+android.permissions = WAKE_LOCK
