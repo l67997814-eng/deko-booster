@@ -4,6 +4,7 @@ package.name = dekobooster
 package.domain = org.deko
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
+source.main_filename = deko_ultra.py
 version = 1.0
 requirements = python3,kivy
 orientation = portrait
