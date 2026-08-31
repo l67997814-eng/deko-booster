@@ -13,3 +13,4 @@ android.api = 31
 android.min_api = 21
 android.sdk = 30
 android.accept_sdk_license = True
+p4a.branch = master
